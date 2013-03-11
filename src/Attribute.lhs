@@ -14,9 +14,9 @@ module Attribute where
 import BasicTypes
 import Literal
 import CoreIDL
-import List  ( find )
+import Data.List  ( find )
 import Utils ( elemBy, mapMb, notNull )
-import Maybe ( mapMaybe )
+import Data.Maybe ( mapMaybe )
 
 \end{code}
 

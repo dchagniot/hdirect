@@ -53,11 +53,11 @@ import LibUtils ( defaultCConv, prelude, autoLib, comLib,
 		)
 import NameSupply
 
-import Int
-import Monad
-import Maybe    ( isJust, fromJust, fromMaybe )
-import Char	( toLower, isSpace )
-import List	( partition, sort, sortBy, isPrefixOf )
+import Data.Int
+import Control.Monad
+import Data.Maybe    ( isJust, fromJust, fromMaybe )
+import Data.Char	( toLower, isSpace )
+import Data.List	( partition, sort, sortBy, isPrefixOf )
 import TypeInfo
 import Validate
 \end{code}

@@ -4,6 +4,7 @@
 %
 
 \begin{code}
+{-# LANGUAGE ScopedTypeVariables #-}
 module Utils 
        ( showOct
        , showHex
@@ -50,15 +51,15 @@ module Utils
        
        ) where
 
-import Char (chr, ord, readLitChar)
+import Data.Char (chr, ord, readLitChar)
 import System.IO
-import IO
-import Int
+import Control.Exception (catch, SomeException)
+import Data.Int
 {- BEGIN_GHC_ONLY
 import Directory
    END_GHC_ONLY -}
-import Monad ( when )
-import List  ( mapAccumL, isPrefixOf )
+import Control.Monad ( when )
+import Data.List  ( mapAccumL, isPrefixOf )
 import Debug.Trace
 
 infixl 1 #
@@ -278,7 +279,7 @@ mbOpenFile verbose fpath = do
   END_GHC_ONLY -}
 {- BEGIN_NOT_FOR_GHC -}
   flg <- (openFile fpath ReadMode >>= \ h -> hClose h >> return True)
-            `catch` (\ _ -> return False)
+            `catch` (\ (_::SomeException) -> return False)
 {- END_NOT_FOR_GHC -}
   if not flg 
    then return Nothing

@@ -23,7 +23,7 @@ import MarshallCore   ( toHaskellBaseTy )
 import CoreUtils
 import LibUtils
 import Utils	      ( trace, traceIf )
-import Char	      ( ord )
+import Data.Char	      ( ord )
 import Opts	      ( optCom )
 
 \end{code}

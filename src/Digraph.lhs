@@ -35,9 +35,9 @@ import Data.Array.ST
 import GHC.Arr
 
 -- std interfaces
-import Maybe
-import Array
-import List ( sortBy, (\\) )
+import Data.Maybe
+import Data.Array
+import Data.List ( sortBy, (\\) )
 \end{code}
 
 

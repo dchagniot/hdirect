@@ -8,6 +8,7 @@
 The toplevel driver for the IDL compiler
 
 \begin{code}
+{-# LANGUAGE ScopedTypeVariables #-}
 module Main
        ( main
        , hdirectHelp
@@ -28,17 +29,20 @@ import PpAbstractH ( ppHTopDecls, showAbstractH )
 import PreProc
 import Desugar
 import Rename
-import IO  ( hPutStr, hPutStrLn, stderr, stdout, hPutChar,
+import System.IO  ( hPutStr, hPutStrLn, stderr, stdout, hPutChar,
 	     openFile, IOMode(..), hClose, Handle, hFlush
 	   )
-import Monad  ( when )
-import System (getProgName, exitWith, ExitCode(..) )
+import Control.Monad  ( when )
+import Control.Exception  ( catch, IOException )
+--import System.IO.Error ( IOException )
+import System.Environment (getProgName)
+import System.Exit (exitWith, ExitCode(..) )
 import CodeGen
 import Utils ( dropSuffix, basename, notNull )
-import Time
-import List  ( partition )
+import System.Time
+import Data.List  ( partition )
 import Version
-import Locale
+import System.Locale
 import HugsCodeGen
 import DefGen
 import CStubGen
@@ -174,7 +178,7 @@ processSource path fname ls ofname = do
        Left str -> 
           catch 
              (runLexM path fname str parseIDL)
-	     (\ err -> removeTmp >> ioError err)
+	     (\ (err::IOException) -> removeTmp >> ioError err)
        Right ds -> return ds
   when (optShowPasses && notNull optAsfs)
        (showPassMsg "Asf reader")

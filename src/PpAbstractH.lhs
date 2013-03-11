@@ -40,7 +40,7 @@ import Opts	 ( optGreenCard, optTargetGhc, optNoQualNames
 		 )
 import Literal
 import BasicTypes
-import Char  ( isAlpha )
+import Data.Char  ( isAlpha )
 import Utils ( notNull )
 import LibUtils
 

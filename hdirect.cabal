@@ -1,5 +1,5 @@
 Name:               hdirect
-Version:            0.21.0
+Version:            0.22.0
 Synopsis:           An IDL compiler for Haskell
 Description:
     HaskellDirect is an IDL compiler for Haskell, which offers a helping
@@ -56,16 +56,17 @@ Executable hdirect
     Main-Is:            Main.lhs
     ghc-options:        -Wall
     build-tools:        happy
-    build-depends:      haskell98,
-                        base >= 2 && < 5,
+    build-depends:      base >= 2 && < 5,
                         pretty,
-                        array
+                        array,
+                        old-locale,
+                        old-time,
+                        process
 
 library
     hs-source-dirs:  src
     build-tools:        happy
-    build-depends:      haskell98,
-                        base >= 2 && < 5,
+    build-depends:      base >= 2 && < 5,
                         pretty,
                         array
 

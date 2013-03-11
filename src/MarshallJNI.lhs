@@ -31,8 +31,8 @@ import Opts
 	( optOneModulePerInterface
         )
 
-import Monad ( when )
-import Maybe ( mapMaybe )
+import Control.Monad ( when )
+import Data.Maybe ( mapMaybe )
 import Utils ( splitLast, snoc )
 
 \end{code}
