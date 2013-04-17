@@ -13,6 +13,6 @@
 #
 ProjectName       = HaskellDirect
 ProjectNameShort  = hdirect
-ProjectVersion    = 0.21
-ProjectVersionInt = 021
+ProjectVersion    = 0.22
+ProjectVersionInt = 022
 ProjectPatchLevel = 0
